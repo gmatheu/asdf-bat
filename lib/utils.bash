@@ -41,9 +41,9 @@ download_release() {
 
 	os="unknown"
 	case "$OSTYPE" in
-  	linux*)   os="unknown-${OSTYPE}";;
-  	darwin*)   os="apple-darwin";;
-  	*)        fail "Unsupported OS: ${OSTYPE}" ;;
+	linux*) os="unknown-${OSTYPE}" ;;
+	darwin*) os="apple-darwin" ;;
+	*) fail "Unsupported OS: ${OSTYPE}" ;;
 	esac
 	arch=$(uname -p)
 
