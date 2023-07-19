@@ -2,7 +2,7 @@
 
 # asdf-bat [![Build](https://github.com/gmatheu/asdf-bat/actions/workflows/build.yml/badge.svg)](https://github.com/gmatheu/asdf-bat/actions/workflows/build.yml) [![Lint](https://github.com/gmatheu/asdf-bat/actions/workflows/lint.yml/badge.svg)](https://github.com/gmatheu/asdf-bat/actions/workflows/lint.yml)
 
-[bat](https://github.com/gmatheu/asdf-bat) plugin for the [asdf version manager](https://asdf-vm.com).
+[bat](https://github.com/sharkdp/bat/) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
@@ -15,18 +15,13 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
 Plugin:
 
 ```shell
-asdf plugin add bat
-# or
 asdf plugin add bat https://github.com/gmatheu/asdf-bat.git
 ```
 

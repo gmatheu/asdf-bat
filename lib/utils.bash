@@ -39,7 +39,15 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	url="$GH_REPO/releases/download/v${version}/bat-v${version}-x86_64-unknown-linux-gnu.tar.gz"
+	os="unknown"
+	case "$OSTYPE" in
+  	linux*)   os="unknown-${OSTYPE}";;
+  	darwin*)   os="apple-darwin";;
+  	*)        fail "Unsupported OS: ${OSTYPE}" ;;
+	esac
+	arch=$(uname -p)
+
+	url="$GH_REPO/releases/download/v${version}/bat-v${version}-${arch}-${os}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -58,7 +66,6 @@ install_version() {
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
-		# TODO: Assert bat executable exists.
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
